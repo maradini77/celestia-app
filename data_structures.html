@@ -175,7 +175,7 @@
 <tr><td><code>lastCommitHash</code></td><td><a href="#hashdigest">HashDigest</a></td><td>Previous block's Tendermint commit hash.</td></tr>
 <tr><td><code>consensusHash</code></td><td><a href="#hashdigest">HashDigest</a></td><td>Hash of <a href="#consensus-parameters">consensus parameters</a> for this block.</td></tr>
 <tr><td><code>AppHash</code></td><td><a href="#hashdigest">HashDigest</a></td><td>The <a href="#state">state root</a> after the previous block's transactions are applied.</td></tr>
-<tr><td><code>availableDataOriginalSharesUsed</code></td><td><code>uint64</code></td><td>The number of shares used in the <a href="#arranging-available-data-into-shares">original data square</a> that are not <a href="./consensus.html#reserved-namespace-ids">tail padding</a>.</td></tr>
+<tr><td><code>availableDataOriginalSharesUsed</code></td><td><code>uint64</code></td><td>The number of shares used in the <a href="#arranging-available-data-into-shares">original data square</a> that are not <a href="./shares.html#tail-padding-share">tail padding</a>.</td></tr>
 <tr><td><code>availableDataRoot</code></td><td><a href="#hashdigest">HashDigest</a></td><td>Root of <a href="#availabledataheader">commitments to erasure-coded data</a>.</td></tr>
 <tr><td><code>proposerAddress</code></td><td><a href="#address">Address</a></td><td>Address of this block's proposer.</td></tr>
 </tbody></table>
@@ -190,7 +190,7 @@
 </div>
 <p>The number of row/column roots of the original data <a href="data_structures.html#share">shares</a> in <a href="#arranging-available-data-into-shares">square layout</a> for this block. The <code>availableDataRoot</code> of the <a href="#header">header</a> is computed using the compact row and column roots as described <a href="#2d-reed-solomon-encoding-scheme">in the 2D Reed-Solomon encoding scheme</a>.</p>
 <p>The number of row and column roots is each <code>availableDataOriginalSquareSize * 2</code>, and must be a power of 2. Note that the minimum <code>availableDataOriginalSquareSize</code> is 1 (not 0), therefore the number of row and column roots are each at least 2.</p>
-<p>Implementations can prune rows containing only <a href="./consensus.html#reserved-namespace-ids">tail padding</a> as they are implicitly available.</p>
+<p>Implementations can prune rows containing only <a href="./shares.html#tail-padding-share">tail padding</a> as they are implicitly available.</p>
 <h3 id="availabledata"><a class="header" href="#availabledata">AvailableData</a></h3>
 <p>Data that is <a href="#erasure-coding">erasure-coded</a> for <a href="https://arxiv.org/abs/1809.09044">data availability checks</a>.</p>
 <div class="table-wrapper"><table><thead><tr><th>name</th><th>type</th><th>description</th></tr></thead><tbody>
